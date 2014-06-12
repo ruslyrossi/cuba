@@ -1,0 +1,12 @@
+[08-Jan-2014 04:07:01] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:07:20] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:07:53] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:09:25] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:09:29] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:09:32] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:10:48] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:10:53] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:10:55] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:11:16] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:11:48] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
+[08-Jan-2014 04:12:31] PHP Fatal error:  Call to a member function numRows() on a non-object in /home/zhapalan/public_html/oc-includes/osclass/model/Admin.php on line 61
