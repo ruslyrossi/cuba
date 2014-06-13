@@ -206,7 +206,7 @@ function osc_private_user_menu($options = null)
  * @param string $end_tag
  * @return string
  */
-function osc_highlight($txt, $len = 300, $start_tag = '<strong>', $end_tag = '</strong>') {
+function osc_highlight($txt, $len = 300, $start_tag = '<span class="highlight_keyword">', $end_tag = '</span>') {
     $txt = strip_tags($txt);
     $txt = str_replace("\n", ' ', $txt);
     $txt = trim($txt);

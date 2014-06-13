@@ -346,7 +346,13 @@ function osc_footer_link_url($f = null) {
     } else {
         $params['sCity'] = $f['fk_i_city_id'];
     }
-
+	
+	if (isset($f['fk_i_category_id'])) {
+		$params['fk_i_category_id'] = $f['fk_i_category_id'];
+	}
+	
+	$params['sPattern'] = $f['sPattern'];
+	
     return osc_search_url($params);
 }
 

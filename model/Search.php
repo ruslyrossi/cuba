@@ -462,7 +462,8 @@
                     if(is_numeric($region)) {
                         $this->regions[] = sprintf("%st_item_location.fk_i_region_id = %d ", DB_TABLE_PREFIX, $this->dao->escapeStr($region));
                     } else {
-                        $this->regions[] = sprintf("%st_item_location.s_region LIKE '%s' ", DB_TABLE_PREFIX, $this->dao->escapeStr($region));
+                        //$this->regions[] = sprintf("%st_item_location.s_region LIKE '%s' ", DB_TABLE_PREFIX, $this->dao->escapeStr($region));
+						$this->regions[] = sprintf("%st_item_location.s_region LIKE '%%%s%%' ", DB_TABLE_PREFIX, $this->dao->escapeStr($region));
                     }
                 }
             }
@@ -903,8 +904,15 @@
                 $this->dao->where('pk_i_id', (int)$this->itemId);
             } else {
                 if($count) {
-                    $this->dao->select(DB_TABLE_PREFIX.'t_item.pk_i_id');
-                    $this->dao->select($extraFields); // plugins!
+                 
+					
+					if ($this->withPattern ) {
+				  		 $this->dao->select(DB_TABLE_PREFIX.'t_item.*, '.DB_TABLE_PREFIX.'t_item.s_contact_name as s_user_name , MATCH (d.s_title, d.s_description) AGAINST (\''.$this->sPattern.'\') AS relevance, MATCH (d.s_title) AGAINST (\''.$this->sPattern.'\') AS title_relevance');
+				   } else {
+					     $this->dao->select(DB_TABLE_PREFIX.'t_item.pk_i_id');
+                  		 $this->dao->select($extraFields); // plugins!
+				   }
+				   
                 } else {
 				   
 				   //$this->dao->select(DB_TABLE_PREFIX.'t_item.*, '.DB_TABLE_PREFIX.'t_item.s_contact_name as s_user_name'); 912 - 916
@@ -986,12 +994,13 @@
 
                // order & limit
 				if ($this->withPattern ) {
-					$this->dao->orderBy('title_relevance + relevance', 'DESC ');
+					$this->dao->orderBy('title_relevance + relevance', 'DESC');
+					//$this->dao->orderBy( $this->order_column, $this->order_direction); 
 				} else {
 					$this->dao->orderBy( $this->order_column, $this->order_direction);
 				}
 				
-				//$this->dao->orderBy( $this->order_column, $this->order_direction); 988 - 994
+				//$this->dao->orderBy( $this->order_column, $this->order_direction); 
 
                 if($count) {
                     $this->dao->limit(5000*$this->results_per_page);
@@ -1003,9 +1012,7 @@
             $this->sql = $this->dao->_getSelect();
             // reset dao attributes
             $this->dao->_resetSelect();
-						
-			//echo $this->sql;			
-						
+			
             return $this->sql;
         }
 
@@ -1020,6 +1027,7 @@
             if( is_null($this->total_results) ) {
                 $this->doSearch();
             }
+			
             return $this->total_results;
         }
 
