@@ -994,8 +994,16 @@
 
                // order & limit
 				if ($this->withPattern ) {
+					
+					if (isset($_GET['iOrderType'], $_GET['sOrder'])) {
+						
+						if ($_GET['iOrderType'] == 'desc' || $_GET['sOrder'] == 'i_price') {
+							$this->dao->orderBy( $this->order_column, $this->order_direction); 
+						}
+					}
+					
 					$this->dao->orderBy('title_relevance + relevance', 'DESC');
-					//$this->dao->orderBy( $this->order_column, $this->order_direction); 
+					
 				} else {
 					$this->dao->orderBy( $this->order_column, $this->order_direction);
 				}
